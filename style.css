@@ -1,7 +1,57 @@
-body{
-    background-color:yellow;
+body{ 
+    background-image: url('Pictures /frontpageimg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
+label{
+    color: blanchedalmond;
+    font-size: 25px;
+} 
+h2{
+    color: blanchedalmond;
+    margin-right: 60px;
+    font-size: 40px;
+} 
+ 
+    
+    
 h1{
-    color:blue;
-    margin-right:30px;
+    color:blanchedalmond 500% ;
+    position: fixed;
+    top: -5%;
+    left: 28%;
+    font-size:60px;}
+
+
+p{
+    color:blanchedalmond;
+    font-size: 80px;
+
+}
+
+
+.form{
+    width: 300px;
+    height: 400px;
+    color: aliceblue;
+    background: linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    padding: 40px 25px;
+}
+.container{
+    width: 150%;
+    height: auto;
+    color: blanchedalmond;
+    background: black; 
+    position: absolute;
+    top: 0%;
+    left: -5%;
+    border-radius: 10px;
+    padding: 40px 25px;
+
 }

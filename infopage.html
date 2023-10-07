@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>    
 <head>
-    <link rel="stylesheet" type="type/css" href="style.css" media="screen" />
+    
 </head>
 
 <div class="Infopage">
@@ -14,23 +15,55 @@
 <body>
     <div class="form">
         <h2>Give us your info!</h2>
-        <label>Enter your name</label><br>
-        <input type="text" name="firstname" size="25px" ><br>
-        <label>Enter your number</label>
+        <label>Enter your name:-</label><br>
+        <input type="text" name="firstname" size="30px" ><br>
+        <label>Enter your number:-</label>
         <input type="text" num="mobilenum" size="30px"><br>
-        <lebel>Enter your wallet address</lebel>
+        <label>Enter your wallet address:-</label>
         <input type="text" name="Walletid" size="30px"><br>
 
     </div>
     <div class="container">
-        <h1>Welcome to the library</h1>    
+        <h1>Blockchain Library</h1>    
     </div>
+    <a href="genrepage.html">
+        <button class="block"><b>GO</b></button>
+      </a>
+      <script>
+        //1- connect metamask
+        let account;
+        const connectMetamask = async () => {
+            if(window.ethereum !== "undefined") {
+                const accounts = await ethereum.request({method: "eth_requestAccounts"});
+                account = accounts[0];
+                document.getElementById("accountArea").innerHTML = account;
+            }
+        }
+
+        //2- connect to smart contract
+        const connectContract = async () => {
+            const ABI = [
+                {}
+                ]
+            const Address = "0x1DCabB8360c16728f0ce5e41BF58ec5eA1a5bA45";
+            window.web3 = await new Web3(window.ethereum);
+            window.contract = await new window.web3.eth.Contract( ABI, Address); 
+            document.getElementById("contractArea").innerHTML = "connected to smart contract";
+        }
+
+        //3-read data from smart contract
+        const readContract = async () => {
+            const data = await window.contract.methods.myCity().call();
+            document.getElementById("dataArea").innerHTML = data;
+        }
+    
+</script>
 
 </body>
-<style>
-    
 
-body{ 
+<style>
+    body{ 
+    background-color: black;    
     background-image: url('Pictures /frontpageimg.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -38,8 +71,16 @@ body{
 }
 label{
     color: blanchedalmond;
-    font-size: 25px;
+    font-size: 30px;
 } 
+label{
+    color: blanchedalmond;
+    font-size: 30px;
+}
+label{
+    color: blanchedalmond;
+    font-size: 22px;
+}
 h2{
     color: blanchedalmond;
     margin-right: 60px;
@@ -51,8 +92,8 @@ h2{
 h1{
     color:blanchedalmond 500% ;
     position: fixed;
-    top: 0%;
-    left: 28%;
+    top: -5%;
+    left: 32%;
     font-size:60px;}
 
 
@@ -67,7 +108,7 @@ p{
     width: 300px;
     height: 400px;
     color: aliceblue;
-    background: linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    background: linear-gradient(to top,rgba(65, 71, 68, 0.538)50%,rgba(65, 71, 68, 0.538)50%);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -76,18 +117,32 @@ p{
     padding: 40px 25px;
 }
 .container{
-    width: 600px;
+    width: 150%;
     height: auto;
     color: blanchedalmond;
-    background: linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    background: linear-gradient(to top,rgba(65, 71, 68, 0.538)50%,rgba(65, 71, 68, 0.538)50%); 
     position: absolute;
-    top: 5%;
-    left: 26%;
+    top: 0%;
+    left: -5%;
     border-radius: 10px;
     padding: 40px 25px;
 
 }
-    
+button{
+    width: 80px;
+    height: 0px;
+    height: auto;
+    color: blanchedalmond;
+    background: gray; 
+    position: absolute;
+    top: 67%;
+    left: 47%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    padding: 5px 15px;
+
+}
+
 </style>
 
 </html>
